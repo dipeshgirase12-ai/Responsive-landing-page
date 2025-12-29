@@ -10,7 +10,7 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 15px 50px;
+    padding: 15px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,7 +20,7 @@ nav {
 }
 
 nav.scrolled {
-    background-color: #111;
+    background: #111;
 }
 
 .logo {
@@ -30,29 +30,36 @@ nav.scrolled {
 }
 
 .nav-links {
-    list-style: none;
     display: flex;
+    list-style: none;
 }
 
 .nav-links li {
-    margin-left: 30px;
+    margin-left: 25px;
 }
 
-.nav-links li a {
+.nav-links a {
     text-decoration: none;
     color: #fff;
-    font-size: 16px;
     transition: 0.3s;
 }
 
-.nav-links li a:hover {
+.nav-links a:hover {
     color: #00e5ff;
+}
+
+/* Hamburger */
+.menu-toggle {
+    display: none;
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
 }
 
 /* Sections */
 .section {
     height: 100vh;
-    padding-top: 100px;
+    padding-top: 120px;
     text-align: center;
 }
 
@@ -61,6 +68,44 @@ nav.scrolled {
     color: white;
 }
 
-.section h2 {
-    margin-bottom: 15px;
+/* Animation */
+.animate {
+    animation: fadeUp 1s ease-in;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #111;
+        flex-direction: column;
+        width: 100%;
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        padding: 15px;
+        text-align: center;
+    }
 }
